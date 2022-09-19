@@ -19,6 +19,11 @@ public class TaskOne {
 
     public static void main(String[] args) throws InterruptedException {
         int[] arr = fillArray();
+        long startTime = System.nanoTime();
         System.out.println(sequentialSum(arr));
+        long elapsedTime = System.nanoTime() - startTime;
+        System.out.println("Total execution in millis: " + elapsedTime/1000000);
+        long usedBytes = Runtime.getRuntime().totalMemory()-Runtime.getRuntime().freeMemory();
+        System.out.println("Bytes used: " + usedBytes);
     }
 }
