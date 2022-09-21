@@ -20,7 +20,7 @@ public class TaskThree {
         private ExecutorService executor = Executors.newSingleThreadExecutor();
         String[] types = new String[] {"XML","JSON","XLS"};
 
-        public Future<Boolean> generate(ArrayDeque<File> queue, int amount) throws InterruptedException {
+        public Future<Boolean> generate(ArrayDeque<File> queue, int amount) {
                 return executor.submit(()->{
                     for (int i = 0; i < amount; i++) {
                         int timer = (int) Math.round(1 + (Math.random() * 9));
@@ -68,7 +68,6 @@ public class TaskThree {
     public static void main(String[] args) throws InterruptedException {
         ExecutorService executor = Executors.newSingleThreadExecutor();
         int amount = 30;
-        String[] types = new String[] {"XML","JSON","XLS"};
         ArrayDeque<File> queue = new ArrayDeque<>();
         FileGenerator fileGenerator = new FileGenerator();
         FileProcessor fileProcessorXML = new FileProcessor("XML");
